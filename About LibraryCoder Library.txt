@@ -1,0 +1,30 @@
+﻿Revised 2018-12-20
+
+File: C:\Users\Paul\Documents\Visual Studio 2017\Libraries\"About LibraryCoder Library".txt.
+
+This library is home to various files that contain methods to simplify App development. Current list of files are:
+
+LibAesEncryption.cs
+LibNumerics.cs
+LibSamplesMisc.cs
+LibUnitConversions.cs
+LibUtilitiesFile.cs
+LibUtilitiesMisc.cs
+
+Generally, create a "Library" folder in project and then add these files, as needed, to the folder via 'Add as Link' option. Using 'Add as Link' option allows any changes made to file to spread to other Apps that have file linked. Edit only one time. But edit need to be done carefully so not to break existing Apps using a linked file.
+
+Some of these files may not compile to a Windows Runtime Component library that can be added by Reference since they may use unsupported types. A sample type is Decimal. Decimals do not have an equivalent underlying Windows Runtime type.
+
+Normally the namespace 'LibraryCoder' would be proceeded by the project name but is omitted so files can be shared between projects easily. Add using statements to Apps such as "using LibraryCoder.Numerics;" or "using LibraryCoder.UnitConversions;" to use these files.
+
+Visual Studio - Share files between multiple projects:
+
+Click on project you want to add the file too.  Select “Add -> Existing Item” and then browse for the file you want to “point” to once the open file dialog appears. 
+However, before clicking “ADD” Button, notice on right side of button there is a little arrow.  Click on it and you will get two options: “Add” and “Add as Link”.  
+Select “Add as Link” option and file will be linked instead of copied into project.  The file icon will have a small arrow overlay.
+
+To remove the file link from your project, just right click on the linked file, then select remove.  The file will remain in original location.  Only the link is deleted.
+
+Credit to Bill Rawlinson at http://code.rawlinson.us/2007/10/visual-studio-sharing-one-file-between.html
+
+More about Windows Runtime Components in C# can be found at https://msdn.microsoft.com/en-us/library/windows/apps/br230301.aspx?f=255&MSPPError=-2147217396
